@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🌾 Crop Prediction Model 🌾</title>
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Arimo|Hind:300|Open+Sans+Condensed:300" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🌾 Crop Prediction Model 🌾</h1>
+        <p>Enter the required values to predict the best crop for your land.</p>
+
+        <form id="cropForm" action="{{ url_for('predict') }}" method="post">
+            <label for="Nitrogen">Nitrogen Level:</label>
+            <input type="number" name="Nitrogen" id="Nitrogen" placeholder="Enter Nitrogen Level" required step="any">
+
+            <label for="Phosphorus">Phosphorus Level:</label>
+            <input type="number" name="Phosphorus" id="Phosphorus" placeholder="Enter Phosphorus Level" required step="any">
+
+            <label for="Potassium">Potassium Level:</label>
+            <input type="number" name="Potassium" id="Potassium" placeholder="Enter Potassium Level" required step="any">
+
+            <label for="Temperature">Temperature (°C):</label>
+            <input type="number" name="Temperature" id="Temperature" placeholder="Enter Temperature" required step="any">
+
+            <label for="Humidity">Humidity (%):</label>
+            <input type="number" name="Humidity" id="Humidity" placeholder="Enter Humidity" required step="any">
+
+            <label for="pH">Soil pH Level:</label>
+            <input type="number" name="pH" id="pH" placeholder="Enter Soil pH Level" required step="any">
+
+            <label for="Rainfall">Rainfall (mm):</label>
+            <input type="number" name="Rainfall" id="Rainfall" placeholder="Enter Rainfall" required step="any">
+
+            <button type="button" onclick="predictCrop()">🪻 Predict Crop 🪻</button>
+        </form>
+
+        <!-- Prediction result area -->
+        <div class="result">
+            {% if prediction_text %}
+            <div class="output-container">
+                <h2 id="predictionText" class="prediction">{{ prediction_text }}</h2>
+
+                <div class="crop-info">
+                    <img id="cropImage" style="display: none;" class="crop-image">
+                    <div id="cropDetails" class="crop-details" style="display: none;">
+                        <!-- Crop details will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Link JavaScript at the END of body -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>

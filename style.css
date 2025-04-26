@@ -9,15 +9,10 @@ body {
     padding: 0;
 }
 
-/* Overlay for better readability */
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-}
+/* Removed dark overlay background */
+/* .overlay {
+    display: none;
+} */
 
 /* Container */
 .container {
@@ -25,26 +20,35 @@ body {
     max-width: 500px;
     margin: 100px auto;
     padding: 30px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.15); /* lighter and no dark shadow */
     border-radius: 15px;
-    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
 }
 
 /* Heading */
 h1 {
-    font-family: cursive;
-    font-size: 28px;
+    font-family: 'Pacifico', cursive;
+    font-size: 24px;
     margin-bottom: 10px;
+}
+
+/* Input Labels */
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 10%;
+    color: white;
 }
 
 /* Input Fields */
 input {
     width: 80%;
     padding: 12px;
-    margin: 10px 0;
+    margin: 5px 0 15px;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
     transition: 0.3s;
 }
@@ -58,7 +62,7 @@ input:focus {
 button {
     background: #4CAF50;
     color: white;
-    padding: 12px 30px;
+    padding: 15px 40px;
     font-size: 18px;
     border: none;
     border-radius: 5px;
@@ -71,9 +75,13 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* Prediction Text */
-#prediction {
+/* Prediction Result */
+.prediction {
+    color: black; /* Change this to desired color */
     font-size: 22px;
     font-weight: bold;
     margin-top: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 10px;
+    border-radius: 8px;
 }
